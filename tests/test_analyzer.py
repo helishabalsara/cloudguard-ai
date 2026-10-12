@@ -28,8 +28,8 @@ def test_mock_findings_not_empty():
 
 def test_remediation_lookup():
     guide = get_remediation("s3_public_access")
-    assert "steps" in guide
-    assert len(guide["steps"]) > 0
+    assert "content" in guide
+    assert len(guide["content"]) > 50
 
 
 def test_knowledge_base_search():

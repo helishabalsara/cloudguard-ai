@@ -140,7 +140,11 @@ async function sendChat() {
     });
     const data = await res.json();
     thinking.remove();
-    appendMessage(data.answer || 'No answer received.', 'bot');
+    let msg = data.answer || 'No answer received.';
+    if (data.follow_up_checks && data.follow_up_checks.length) {
+      msg += '\n\n**Suggested follow-up checks:**\n' + data.follow_up_checks.map(c => `• ${c}`).join('\n');
+    }
+    appendMessage(msg, 'bot');
   } catch (e) {
     thinking.remove();
     appendMessage('Error: ' + e.message, 'bot');

@@ -5,10 +5,14 @@ pyyaml>=6.0.1
 python-dotenv>=1.0.0
 requests>=2.31.0
 jinja2>=3.1.2
-# Optional: LLM-powered remediation
+# RAG vector store + local embeddings
+chromadb>=0.4.22
+sentence-transformers>=2.6.0
+# Optional: LLM-powered answers
 # openai>=1.12.0
 # Azure SDK (optional)
-# azure-mgmt-resource>=23.0.0
+# azure-mgmt-storage>=21.0.0
+# azure-mgmt-network>=25.0.0
 # azure-identity>=1.15.0
 # GCP SDK (optional)
-# google-cloud-asset>=3.25.0
+# google-cloud-storage>=2.14.0
