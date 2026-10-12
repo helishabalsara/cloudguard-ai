@@ -1,0 +1,14 @@
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+boto3>=1.34.0
+pyyaml>=6.0.1
+python-dotenv>=1.0.0
+requests>=2.31.0
+jinja2>=3.1.2
+# Optional: LLM-powered remediation
+# openai>=1.12.0
+# Azure SDK (optional)
+# azure-mgmt-resource>=23.0.0
+# azure-identity>=1.15.0
+# GCP SDK (optional)
+# google-cloud-asset>=3.25.0

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CloudGuard AI</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo">☁️ CloudGuard AI</div>
+  <div class="nav-links">
+    <a href="#dashboard">Dashboard</a>
+    <a href="#findings">Findings</a>
+    <a href="#chat">AI Chat</a>
+  </div>
+</nav>
+
+<main>
+  <!-- Scan Controls -->
+  <section id="dashboard" class="section">
+    <h2>Cloud Posture Scan</h2>
+    <div class="scan-controls">
+      <select id="provider-select">
+        <option value="aws">AWS</option>
+        <option value="azure">Azure</option>
+        <option value="gcp">GCP</option>
+        <option value="all">All Providers</option>
+      </select>
+      <label class="toggle-label">
+        <input type="checkbox" id="mock-toggle" checked/>
+        <span>Demo Mode</span>
+      </label>
+      <button id="scan-btn" class="btn-primary">Run Scan</button>
+    </div>
+
+    <!-- Risk Score Cards -->
+    <div class="summary-cards" id="summary-cards">
+      <div class="card" id="card-score">
+        <div class="card-num" id="risk-score">--</div>
+        <div class="card-label">Risk Score</div>
+      </div>
+      <div class="card" id="card-grade">
+        <div class="card-num" id="risk-grade">--</div>
+        <div class="card-label">Grade</div>
+      </div>
+      <div class="card critical-card">
+        <div class="card-num critical" id="count-critical">0</div>
+        <div class="card-label">Critical</div>
+      </div>
+      <div class="card high-card">
+        <div class="card-num high" id="count-high">0</div>
+        <div class="card-label">High</div>
+      </div>
+      <div class="card medium-card">
+        <div class="card-num medium" id="count-medium">0</div>
+        <div class="card-label">Medium</div>
+      </div>
+      <div class="card low-card">
+        <div class="card-num low" id="count-low">0</div>
+        <div class="card-label">Low</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Findings Table -->
+  <section id="findings" class="section">
+    <h2>Security Findings</h2>
+    <div class="filter-bar">
+      <input type="text" id="search-input" placeholder="Filter findings..." />
+      <select id="severity-filter">
+        <option value="">All Severities</option>
+        <option value="critical">Critical</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <select id="service-filter">
+        <option value="">All Services</option>
+      </select>
+    </div>
+    <div class="table-wrap">
+      <table id="findings-table">
+        <thead>
+          <tr>
+            <th>Severity</th>
+            <th>Service</th>
+            <th>Title</th>
+            <th>Resource</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="findings-body">
+          <tr><td colspan="5" class="empty">Run a scan to see findings.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- AI Chat -->
+  <section id="chat" class="section">
+    <h2>AI Remediation Assistant</h2>
+    <div class="chat-window" id="chat-window">
+      <div class="message bot-msg">
+        <strong>CloudGuard AI:</strong> Hi! Ask me anything about your cloud security findings or how to fix them.
+      </div>
+    </div>
+    <div class="chat-input-bar">
+      <input type="text" id="chat-input" placeholder="Ask about a finding or remediation step..." />
+      <button id="chat-send" class="btn-primary">Send</button>
+    </div>
+  </section>
+</main>
+
+<!-- Finding Detail Modal -->
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <button class="modal-close" id="modal-close">✕</button>
+    <h3 id="modal-title"></h3>
+    <p id="modal-description"></p>
+    <div id="modal-remediation"></div>
+  </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

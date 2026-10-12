@@ -1,0 +1,27 @@
+server:
+  host: 0.0.0.0
+  port: 8000
+  debug: false
+
+aws:
+  access_key_id: ""        # or set AWS_ACCESS_KEY_ID env var
+  secret_access_key: ""    # or set AWS_SECRET_ACCESS_KEY env var
+  region: us-east-1
+
+azure:
+  subscription_id: ""
+  tenant_id: ""
+  client_id: ""
+  client_secret: ""
+
+gcp:
+  project_id: ""
+  credentials_file: ""     # path to service account JSON
+
+rag:
+  # Set to openai to enable LLM-powered answers; set to local for rule-based only
+  mode: local
+  openai_api_key: ""
+
+output:
+  results_dir: scan_results/
